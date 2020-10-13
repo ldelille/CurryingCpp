@@ -121,7 +121,7 @@ void test_3()
     printf("\nForward list after mapping:");
     print_list(b);
 
-    auto keepEven = std::bind( std::equal_to< bool >(), 0, std::bind( std::modulus< int >(), _1, 2)); // Nested use of bind. Currification to find even numbers
+    auto keepEven = std::bind( std::equal_to< bool >(), 0, std::bind( std::modulus< int >(), _1, 2)); // Nested use of bind. Currying to find even numbers
     forward_list<int> c = filter(a, keepEven);
     printf("\nForward list keeping only even numbers");
     print_list(c);
