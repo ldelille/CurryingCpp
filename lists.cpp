@@ -27,6 +27,7 @@ void print_list(const forward_list<int> &lista)
     cout << ")" << endl;
 }
 
+//auxiliary recursive function to map
 forward_list<int> map_aux(forward_list<int>::const_iterator itCurrent, forward_list<int>::const_iterator itEnd, std::function<int(int i)> functiontest)
 {
     forward_list<int> listb;
@@ -38,7 +39,7 @@ forward_list<int> map_aux(forward_list<int>::const_iterator itCurrent, forward_l
     listb.push_front(functiontest(*itCurrent));
     return listb;
 }
-
+//map each element of the list, according to the function functiontest given in argument
 forward_list<int> map(const forward_list<int> &lista, std::function<int(int i)> functiontest)
 {
     forward_list<int>::const_iterator itStart = lista.begin();
@@ -47,6 +48,8 @@ forward_list<int> map(const forward_list<int> &lista, std::function<int(int i)> 
     return listc;
 }
 
+
+//auxliary recursive function to filter function
 forward_list<int> filter_aux(forward_list<int>::const_iterator itCurrent, forward_list<int>::const_iterator itEnd, std::function<bool(int i)> pred)
 {
     forward_list<int> listb;
@@ -84,8 +87,8 @@ int reduce(const forward_list<int> &lista, int i, std::function<int(int j, int k
     return current;
 }
 
-//Bonus part
 
+//recursive auxiliary function to left_aux
 int fold_left_aux(forward_list<int>::const_iterator itCurrent, forward_list<int>::const_iterator itEnd, int i, std::function<int(int j, int k)> functionb)
 {
     if (itCurrent == itEnd)
